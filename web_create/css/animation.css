@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+.fu-text1 h3{ position:absolute; top:0; opacity: 0; transition: all 1s; left:100px;}
+.fu-text1 p{ opacity: 0; transition: all 1s; position:absolute; left:100px; top:70px;}
+.fu-text1 .fu-text_a{ opacity: 0; transition: all 1s; position:absolute; top:160px; left:100px;}
+.fu-text2 h3{ position:absolute; top:70px; opacity: 0; transition: all 1s; left:100px;}
+.fu-text2 p{ opacity: 0; transition: all 1s; position:absolute; left:100px; top:160px;}
+.fu-text2 .fu-text_a{ opacity: 0; transition: all 1s; position:absolute; top:260px; left:100px;}
+
+
+
+.animation .fu-text1 h3{ opacity:1; left:0;}
+.animation .fu-text1 p{ opacity:1; left:0; transition-delay:.5s;}
+.animation .fu-text1 .fu-text_a{ opacity:1; left:0; transition-delay:.7s;}
+.animation .fu-text2 h3{ opacity:1; top:0;}
+.animation .fu-text2 p{ opacity:1; top:70px; transition-delay:.5s;}
+.animation .fu-text2 .fu-text_a{ opacity:1; top:160px; transition-delay:.7s;}
+
+  
+  
