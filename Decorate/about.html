@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>幸运草装饰-关于我们</title>
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/decorate.css" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=be6P5SNFpXsFBVpBQNVZrgncNrNz2Bl2"></script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header-box">
+				<div class="logo"></div>
+				<div class="search clearfix">
+					<input type="text" placeholder="搜索您公司的位置试试：如梅溪湖" />
+					<button type="submit"><img src="img/index/search.png"></button>
+				</div>
+				<div class="pho fl">
+					<div class="fl"><img src="img/index/phone.png"></div>
+					<div class="fl">
+						<div><span>0731-8515 6152</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<ul class="clearfix">
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li>
+					<a href="case.html">精选案例</a>
+				</li>
+				<li>
+					<a href="designer.html">设计团队</a>
+				</li>
+				<!--<li>
+					<a href="/">品质保证</a>
+				</li>-->
+				<li >
+					<a href="news.html">行业资讯</a>
+				</li>
+				<li class="current">
+					<a href="about.html">关于我们</a>
+				</li>
+			</ul>
+		</div>
+		<div class="news-top-img">
+			<img src="img/news/new-img.jpg">
+		</div>
+		<div class="about_warp">
+			<div class="about_main">
+				<div class="about_main_menu">
+					<ul>
+						<li>
+							<a href="javascript:;" class="about act">公司介绍</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="countwe ">联系我们</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="yijian">意见反馈</a>
+						</li>
+					</ul>
+				</div>
+				<div class="about_main_nar">
+					
+				</div>
+			</div>
+
+			<div class="footer ">
+				<div class="foot-con ">
+					<ul class="clearfix ">
+						<li>
+							<dl>
+								<dt>关于我们</dt>
+								<dd>
+									<a>公司简介</a>
+								</dd>
+								<dd>
+									<a>企业动态</a>
+								</dd>
+								<dd>
+									<a>装修攻略</a>
+								</dd>
+								<dd>
+									<a>客户感言</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt>客户服务</dt>
+								<dd>
+									<a>五零工程</a>
+								</dd>
+								<dd>
+									<a>蓝钻工程</a>
+								</dd>
+								<dd>
+									<a>环保体系</a>
+								</dd>
+								<dd>
+									<a>投诉建议</a>
+								</dd>
+							</dl>
+						</li>
+						<li class="gz ">
+							<h3 class="gz-tit ">关注我们</h3>
+							<img src="img/index/weibo.png " style="margin-left: 50px; ">
+							<img src="img/index/weixin.png ">
+							<img src="img/index/txwb.png ">
+							<p class="rx ">
+								24小时服务热线：<br>
+								<span>0731-85156152</span>
+							</p>
+						</li>
+						<li class="ewm ">
+							<h3>扫一扫 联系我们</h3>
+							<img src="img/index/ewm.png ">
+						</li>
+					</ul>
+				</div>
+				<div class="bq ">
+					<p>幸运草装饰有限公司 版权所有湘ICP备16034337号 丨 湘公网安备 1101050203号</p>
+				</div>
+			</div>
+			<script type="text/javascript " src="js/jquery-1.8.js "></script>
+			<script type="text/javascript " src="js/decorate.js "></script>
+			<script type="text/javascript">
+			//创建和初始化地图函数：
+			function initMap() {
+				createMap(); //创建地图
+				setMapEvent(); //设置地图事件
+				addMapControl(); //向地图添加控件
+				addMapOverlay(); //向地图添加覆盖物
+			}
+
+			function createMap() {
+				map = new BMap.Map("map");
+				map.centerAndZoom(new BMap.Point(112.979354, 28.209917), 15);
+			}
+
+			function setMapEvent() {
+				map.enableScrollWheelZoom();
+				map.enableKeyboard();
+				map.enableDragging();
+				map.enableDoubleClickZoom()
+			}
+
+			function addClickHandler(target, window) {
+				target.addEventListener("click", function() {
+					target.openInfoWindow(window);
+				});
+			}
+
+			function addMapOverlay() {
+				var markers = [{
+					content: "",
+					title: "万达广场B座",
+					imageOffset: {
+						width: -46,
+						height: -21
+					},
+					position: {
+						lat: 28.20449,
+						lng: 112.976928
+					}
+				}];
+				for (var index = 0; index < markers.length; index++) {
+					var point = new BMap.Point(markers[index].position.lng, markers[index].position.lat);
+					var marker = new BMap.Marker(point, {
+						icon: new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png", new BMap.Size(20, 25), {
+							imageOffset: new BMap.Size(markers[index].imageOffset.width, markers[index].imageOffset.height)
+						})
+					});
+					var label = new BMap.Label(markers[index].title, {
+						offset: new BMap.Size(25, 5)
+					});
+					var opts = {
+						width: 200,
+						title: markers[index].title,
+						enableMessage: false
+					};
+					var infoWindow = new BMap.InfoWindow(markers[index].content, opts);
+					marker.setLabel(label);
+					addClickHandler(marker, infoWindow);
+					map.addOverlay(marker);
+				};
+			}
+			//向地图添加控件
+			function addMapControl() {
+				var scaleControl = new BMap.ScaleControl({
+					anchor: BMAP_ANCHOR_BOTTOM_LEFT
+				});
+				scaleControl.setUnit(BMAP_UNIT_METRIC);
+				map.addControl(scaleControl);
+				var navControl = new BMap.NavigationControl({
+					anchor: BMAP_ANCHOR_TOP_LEFT,
+					type: 3
+				});
+				map.addControl(navControl);
+			}
+			var map;
+			initMap();
+		</script>
+	</body>
+
+</html>
